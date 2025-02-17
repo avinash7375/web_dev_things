@@ -1,0 +1,13 @@
+/* // src/app/user-form/user-form.component.css */
+.invalid-feedback {
+  display: block;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

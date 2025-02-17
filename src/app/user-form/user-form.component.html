@@ -1,0 +1,44 @@
+<!-- src/app/user-form/user-form.component.html -->
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="name" 
+          formControlName="name">
+        <div *ngIf="submitted && userForm.get('name')?.errors" class="text-danger">
+          <small *ngIf="userForm.get('name')?.errors?.['required']">Name is required</small>
+          <small *ngIf="userForm.get('name')?.errors?.['minlength']">Name must be at least 3 characters</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          id="email" 
+          formControlName="email">
+        <div *ngIf="submitted && userForm.get('email')?.errors" class="text-danger">
+          <small *ngIf="userForm.get('email')?.errors?.['required']">Email is required</small>
+          <small *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input 
+          type="tel" 
+          class="form-control" 
+          id="phone" 
+          formControlName="phone">
+        <div *ngIf="submitted && userForm.get('phone')?.errors" class="text-danger">
+          <small *ngIf="userForm.get('phone')?.errors?.['required']">Phone is required</small>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
